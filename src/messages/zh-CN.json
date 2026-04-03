@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "services": "服务",
+    "industries": "行业",
+    "work": "成功案例",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "getConsultation": "免费咨询"
+  },
+  "hero": {
+    "badge": "立足香港 · 放眼亚洲及全球",
+    "headline": "被看见，被选择。",
+    "subheadline": "掌控您的数字声誉。",
+    "tagline": "亚洲领先的 MarTech AI 及线上声誉管理机构。结合 AI 社交情报与真实社群倡导，保护并提升您品牌在亚洲的声誉。",
+    "cta": "预约免费咨询",
+    "ctaSecondary": "查看我们的成果",
+    "trust1": "18 年行业经验",
+    "trust2": "10,000+ 真实 KOC 网络",
+    "trust3": "100+ 企业品牌服务经验"
+  },
+  "trust": {
+    "headline": "获香港及亚洲各地领先企业品牌信赖",
+    "years": "数字营销卓越经验",
+    "resources": "认证媒体及 KOC 资源",
+    "brands": "企业品牌服务经验",
+    "exposure": "累计品牌曝光总量"
+  },
+  "why": {
+    "eyebrow": "为何选择 CDMC Group",
+    "headline": "我们不跟随市场，我们塑造市场。",
+    "subheadline": "三大核心能力，令 CDMC 有别于亚洲所有传统营销代理。",
+    "intelligence": {
+      "title": "AI 社交情报",
+      "description": "我们利用 AI 社交聆听，找出消费者正在追问而竞争对手尚未解答的问题，协助您掌握这些对话的主动权。"
+    },
+    "advocacy": {
+      "title": "真实社群倡导",
+      "description": "拒绝假评论。我们的矩阵式口碑播种，在关键决策节点植入真实消费者声音，建立可转化、可持续的品牌信任。"
+    },
+    "data": {
+      "title": "商业级数据报告",
+      "description": "我们的报告超越表面数据——声量份额、情感分析、互动质量——直接驱动您的下一步商业决策。"
+    }
+  },
+  "services": {
+    "eyebrow": "我们的服务",
+    "headline": "端到端声誉管理",
+    "subheadline": "从诊断到执行——保护、建立并放大您在每个数字渠道的品牌声音。",
+    "learnMore": "了解更多",
+    "orm": {
+      "title": "线上声誉管理",
+      "description": "以 AI 精准监控、保护并塑造您在所有数字渠道的品牌叙事。"
+    },
+    "social": {
+      "title": "社交情报与分析",
+      "description": "实时监测小红书、Instagram、Threads 等平台，发掘竞争对手盲区。"
+    },
+    "wom": {
+      "title": "KOC 种草与口碑营销",
+      "description": "10,000+ 认证真实 KOC 创建及分发真实消费者倡导内容，实现高效转化。"
+    },
+    "crisis": {
+      "title": "危机管理",
+      "description": "24/7 快速响应。当您的声誉面临风险，我们在数小时内采取行动——而非数天。"
+    }
+  },
+  "industries": {
+    "eyebrow": "服务行业",
+    "headline": "深度专业，真实成果。",
+    "subheadline": "我们专注三大高风险行业——声誉决定一切的领域。",
+    "learnMore": "探索解决方案",
+    "finance": {
+      "title": "金融及保险",
+      "description": "建立可信度，管理监管审查，与亚洲高净值客户建立持久信任。"
+    },
+    "ecommerce": {
+      "title": "电商及零售",
+      "description": "推动真实评论，管理跨境声誉，主导小红书等平台的探索漏斗。"
+    },
+    "aesthetics": {
+      "title": "医美及美容",
+      "description": "保护诊所声誉，吸引新患者，谨慎且迅速地管理敏感评论。"
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "成功案例",
+    "headline": "真实品牌的真实成果",
+    "subheadline": "在亚洲最具竞争力的行业中取得可量化的成效。",
+    "viewAll": "查看所有案例",
+    "readMore": "阅读案例"
+  },
+  "testimonials": {
+    "eyebrow": "客户故事",
+    "headline": "客户如何评价我们"
+  },
+  "cta": {
+    "headline": "准备好掌控您在亚洲的品牌声誉？",
+    "subheadline": "预约免费 30 分钟咨询。我们的策略师将分析您当前的品牌声誉状况，精准指出机遇所在。",
+    "primary": "预约免费咨询",
+    "whatsapp": "WhatsApp 联系我们",
+    "disclaimer": "无需承诺，附赠免费品牌声誉审计。"
+  },
+  "footer": {
+    "tagline": "亚洲领先的 MarTech AI 及线上声誉管理机构。被看见，被选择。掌控您的数字声誉。",
+    "services": "服务",
+    "industries": "行业",
+    "company": "公司",
+    "rights": "© 2025 CDMC Group（志华数码媒体集团有限公司）。版权所有。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "contact": {
+    "headline": "与我们联系",
+    "form": {
+      "name": "姓名",
+      "company": "公司名称",
+      "email": "邮箱",
+      "phone": "电话",
+      "industry": "行业",
+      "service": "感兴趣的服务",
+      "message": "留言",
+      "submit": "发送消息",
+      "success": "感谢您！我们将尽快与您联系。"
+    }
+  }
+}

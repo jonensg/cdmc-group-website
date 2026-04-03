@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "services": "Services",
+    "industries": "Industries",
+    "work": "Our Work",
+    "about": "About",
+    "contact": "Contact",
+    "getConsultation": "Free Consultation"
+  },
+  "hero": {
+    "badge": "Hong Kong Based · Serving Asia & Beyond",
+    "headline": "Be Seen. Be Chosen.",
+    "subheadline": "Master Your Digital Reputation.",
+    "tagline": "Asia's leading MarTech AI & ORM agency. We combine AI social intelligence with authentic community advocacy to protect and grow your brand reputation across Asia.",
+    "cta": "Book Free Consultation",
+    "ctaSecondary": "View Our Work",
+    "trust1": "18 Years of Excellence",
+    "trust2": "10,000+ Verified KOC Network",
+    "trust3": "100+ Enterprise Brands Served"
+  },
+  "trust": {
+    "headline": "Trusted by leading enterprise brands across Hong Kong & Asia",
+    "years": "Years of Digital Marketing Excellence",
+    "resources": "Verified Media & KOC Resources",
+    "brands": "Enterprise Brands Served",
+    "exposure": "Total Brand Exposure Generated"
+  },
+  "why": {
+    "eyebrow": "Why CDMC Group",
+    "headline": "We Don't Follow Markets. We Shape Them.",
+    "subheadline": "Three capabilities that set CDMC apart from every traditional marketing agency in Asia.",
+    "intelligence": {
+      "title": "AI Social Intelligence",
+      "description": "We use AI social listening to find the questions consumers are asking that your competitors haven't answered — then we help you own those conversations."
+    },
+    "advocacy": {
+      "title": "Real Community Advocacy",
+      "description": "No fake reviews. Our Matrix Seeding places authentic consumer voices at critical decision points, building brand trust that converts and endures."
+    },
+    "data": {
+      "title": "Business-Grade Data Reports",
+      "description": "Our reports go beyond vanity metrics — Share of Voice, Sentiment Analysis, Engagement Quality — intelligence that directly drives your next commercial decision."
+    }
+  },
+  "services": {
+    "eyebrow": "What We Do",
+    "headline": "End-to-End Reputation Management",
+    "subheadline": "From diagnosis to execution — we protect, build, and amplify your brand across every digital channel.",
+    "learnMore": "Learn more",
+    "orm": {
+      "title": "Online Reputation Management",
+      "description": "Monitor, protect, and shape your brand narrative across all digital channels with AI-powered precision."
+    },
+    "social": {
+      "title": "Social Intelligence & Analytics",
+      "description": "Real-time AI listening across Xiaohongshu, Instagram, Threads and beyond. Uncover competitor blind spots."
+    },
+    "wom": {
+      "title": "KOC Seeding & Word-of-Mouth",
+      "description": "10,000+ verified authentic KOCs creating and distributing real consumer advocacy that converts."
+    },
+    "crisis": {
+      "title": "Crisis Management",
+      "description": "24/7 rapid response. When your reputation is at risk, we act within hours — not days."
+    }
+  },
+  "industries": {
+    "eyebrow": "Industries We Serve",
+    "headline": "Deep Expertise. Real Results.",
+    "subheadline": "We specialise in three high-stakes verticals where reputation is everything.",
+    "learnMore": "Explore solutions",
+    "finance": {
+      "title": "Finance & Insurance",
+      "description": "Establish credibility, manage regulatory scrutiny, and build lasting trust with high-net-worth clients across Asia."
+    },
+    "ecommerce": {
+      "title": "E-commerce & Retail",
+      "description": "Drive authentic reviews, manage cross-border reputation, and dominate the discovery funnel on Xiaohongshu and beyond."
+    },
+    "aesthetics": {
+      "title": "Aesthetics & Medical Beauty",
+      "description": "Protect your clinic's reputation, attract new patients, and manage sensitive reviews with discretion and speed."
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Case Studies",
+    "headline": "Real Results for Real Brands",
+    "subheadline": "Measured outcomes across Asia's most competitive verticals.",
+    "viewAll": "View All Case Studies",
+    "readMore": "Read case study"
+  },
+  "testimonials": {
+    "eyebrow": "Client Stories",
+    "headline": "What Our Clients Say"
+  },
+  "cta": {
+    "headline": "Ready to Own Your Reputation in Asia?",
+    "subheadline": "Book a free 30-minute consultation. Our strategists will analyse your current brand reputation and show you exactly where the opportunities lie.",
+    "primary": "Book Free Consultation",
+    "whatsapp": "WhatsApp Us",
+    "disclaimer": "No commitment required. Free brand reputation audit included."
+  },
+  "footer": {
+    "tagline": "Asia's leading MarTech AI & ORM agency. Be Seen. Be Chosen. Master Your Digital Reputation.",
+    "services": "Services",
+    "industries": "Industries",
+    "company": "Company",
+    "rights": "© 2025 CDMC Group (Chiwa Digital Media Capital Group Ltd). All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "contact": {
+    "headline": "Get in Touch",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone",
+      "industry": "Industry",
+      "service": "Service Interest",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Thank you! We'll be in touch soon."
+    }
+  }
+}
