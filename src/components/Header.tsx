@@ -1,10 +1,10 @@
 'use client';
 
-import { useTranslations, usePathname, useRouter } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname, useRouter } from '@/navigation';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
 
 const navItems = ['services', 'industries', 'work', 'about', 'contact'] as const;
 
