@@ -1,7 +1,5 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { MapPin, Mail, Globe } from 'lucide-react';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -27,61 +25,53 @@ export default function Footer() {
     { label: 'Contact', href: 'contact' },
   ];
 
-  const globalPresence = ['Hong Kong', 'Malaysia', 'Singapore', 'Taiwan', 'Toronto'];
-
   return (
-    <footer style={{ background: '#0A0A0F', borderTop: '1px solid rgba(201, 168, 76, 0.1)' }}>
+    <footer style={{ background: '#080808', borderTop: '1px solid rgba(247,244,239,0.06)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        {/* Gold rule */}
+        <div className="w-8 h-px mb-14" style={{ background: '#A8842A' }} />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="mb-4">
+            <div className="mb-5">
               <span
-                className="text-2xl font-bold"
-                style={{
-                  fontFamily: 'var(--font-space-grotesk)',
-                  color: '#C9A84C',
-                }}
+                className="text-base font-bold tracking-widest uppercase"
+                style={{ fontFamily: 'var(--font-inter)', color: '#A8842A' }}
               >
                 CDMC
               </span>
               <span
-                className="text-xs tracking-widest uppercase ml-2"
-                style={{ color: '#6B7280' }}
+                className="text-[9px] tracking-[0.2em] uppercase ml-2"
+                style={{ color: 'rgba(247,244,239,0.25)' }}
               >
                 Group
               </span>
             </div>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: '#6B7280' }}>
+            <p className="text-sm leading-relaxed mb-8" style={{ color: '#4A4540' }}>
               {t('tagline')}
             </p>
-
-            {/* Global presence */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <MapPin size={13} style={{ color: '#C9A84C' }} />
-                <span className="text-xs" style={{ color: '#6B7280' }}>
-                  {globalPresence.join(' · ')}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={13} style={{ color: '#C9A84C' }} />
-                <a href="mailto:hello@cdmcgroup.com" className="text-xs hover:text-[#C9A84C] transition-colors" style={{ color: '#6B7280' }}>
-                  hello@cdmcgroup.com
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Globe size={13} style={{ color: '#C9A84C' }} />
-                <span className="text-xs" style={{ color: '#6B7280' }}>cdmcgroup.com</span>
-              </div>
+            <div className="space-y-1.5">
+              <p className="text-xs" style={{ color: '#4A4540' }}>
+                HK · MY · SG · TW · Toronto
+              </p>
+              <a
+                href="mailto:hello@cdmcgroup.com"
+                className="block text-xs transition-colors hover:opacity-80"
+                style={{ color: '#4A4540' }}
+              >
+                hello@cdmcgroup.com
+              </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
             <h4
-              className="text-xs font-semibold tracking-widest uppercase mb-5"
-              style={{ color: '#C9A84C' }}
+              className="text-xs font-semibold tracking-widest uppercase mb-6"
+              style={{ color: 'rgba(247,244,239,0.3)' }}
             >
               {t('services')}
             </h4>
@@ -90,8 +80,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={`/${locale}/${link.href}`}
-                    className="text-sm transition-colors hover:text-[#C9A84C]"
-                    style={{ color: '#6B7280' }}
+                    className="text-sm transition-colors hover:opacity-80"
+                    style={{ color: '#4A4540' }}
                   >
                     {link.label}
                   </Link>
@@ -103,8 +93,8 @@ export default function Footer() {
           {/* Industries */}
           <div>
             <h4
-              className="text-xs font-semibold tracking-widest uppercase mb-5"
-              style={{ color: '#C9A84C' }}
+              className="text-xs font-semibold tracking-widest uppercase mb-6"
+              style={{ color: 'rgba(247,244,239,0.3)' }}
             >
               {t('industries')}
             </h4>
@@ -113,8 +103,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={`/${locale}/${link.href}`}
-                    className="text-sm transition-colors hover:text-[#C9A84C]"
-                    style={{ color: '#6B7280' }}
+                    className="text-sm transition-colors hover:opacity-80"
+                    style={{ color: '#4A4540' }}
                   >
                     {link.label}
                   </Link>
@@ -126,8 +116,8 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4
-              className="text-xs font-semibold tracking-widest uppercase mb-5"
-              style={{ color: '#C9A84C' }}
+              className="text-xs font-semibold tracking-widest uppercase mb-6"
+              style={{ color: 'rgba(247,244,239,0.3)' }}
             >
               {t('company')}
             </h4>
@@ -136,8 +126,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={`/${locale}/${link.href}`}
-                    className="text-sm transition-colors hover:text-[#C9A84C]"
-                    style={{ color: '#6B7280' }}
+                    className="text-sm transition-colors hover:opacity-80"
+                    style={{ color: '#4A4540' }}
                   >
                     {link.label}
                   </Link>
@@ -149,24 +139,24 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8"
-          style={{ borderTop: '1px solid rgba(201, 168, 76, 0.08)' }}
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8"
+          style={{ borderTop: '1px solid rgba(247,244,239,0.05)' }}
         >
-          <p className="text-xs" style={{ color: '#4B5563' }}>
+          <p className="text-xs" style={{ color: '#2A2A2A' }}>
             {t('rights')}
           </p>
           <div className="flex items-center gap-6">
             <Link
               href={`/${locale}/privacy`}
-              className="text-xs transition-colors hover:text-[#C9A84C]"
-              style={{ color: '#4B5563' }}
+              className="text-xs transition-colors hover:opacity-80"
+              style={{ color: '#2A2A2A' }}
             >
               {t('privacy')}
             </Link>
             <Link
               href={`/${locale}/terms`}
-              className="text-xs transition-colors hover:text-[#C9A84C]"
-              style={{ color: '#4B5563' }}
+              className="text-xs transition-colors hover:opacity-80"
+              style={{ color: '#2A2A2A' }}
             >
               {t('terms')}
             </Link>

@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl';
-import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -29,76 +28,71 @@ export default function Testimonials() {
   const t = useTranslations('testimonials');
 
   return (
-    <section className="py-24" style={{ background: '#0A0A0F' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <p
-            className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: '#C9A84C' }}
-          >
+    <section style={{ background: '#F7F4EF' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+
+        {/* Section header */}
+        <div className="flex items-center gap-5 mb-6">
+          <div className="w-8 h-px" style={{ background: '#A8842A' }} />
+          <p className="text-xs font-medium tracking-widest uppercase" style={{ color: '#A8842A' }}>
             {t('eyebrow')}
           </p>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold"
-            style={{
-              fontFamily: 'var(--font-space-grotesk)',
-              color: '#F5F5F5',
-            }}
-          >
-            {t('headline')}
-          </h2>
         </div>
+        <h2
+          className="text-4xl sm:text-5xl leading-[1.05] mb-20"
+          style={{
+            fontFamily: 'var(--font-dm-serif)',
+            color: '#0F0F0F',
+          }}
+        >
+          {t('headline')}
+        </h2>
 
-        {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Testimonials */}
+        <div>
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="relative p-8 rounded-2xl border-gold-glow"
-              style={{ background: '#16161F' }}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 py-12"
+              style={{ borderTop: '1px solid rgba(15,15,15,0.08)' }}
             >
-              {/* Quote icon */}
-              <Quote
-                size={28}
-                className="mb-6 opacity-30"
-                style={{ color: '#C9A84C' }}
-              />
+              {/* Left: gold rule */}
+              <div className="hidden lg:flex lg:col-span-1 pt-1">
+                <div className="w-px self-stretch" style={{ background: '#A8842A', opacity: 0.4 }} />
+              </div>
 
-              <p
-                className="text-sm leading-relaxed mb-8"
-                style={{ color: '#9CA3AF' }}
-              >
-                "{item.quote}"
-              </p>
-
-              <div
-                className="pt-5"
-                style={{ borderTop: '1px solid rgba(201, 168, 76, 0.1)' }}
-              >
+              {/* Quote */}
+              <div className="lg:col-span-7">
                 <p
-                  className="text-sm font-semibold"
+                  className="text-xl sm:text-2xl leading-relaxed mb-8"
                   style={{
-                    fontFamily: 'var(--font-space-grotesk)',
-                    color: '#F5F5F5',
+                    fontFamily: 'var(--font-dm-serif)',
+                    color: '#0F0F0F',
                   }}
+                >
+                  "{item.quote}"
+                </p>
+              </div>
+
+              {/* Attribution */}
+              <div className="lg:col-span-4 flex flex-col justify-center lg:pl-8">
+                <p
+                  className="text-sm font-semibold mb-1"
+                  style={{ color: '#0F0F0F' }}
                 >
                   {item.author}
                 </p>
-                <p className="text-xs mt-0.5" style={{ color: '#6B7280' }}>{item.company}</p>
-                <div
-                  className="inline-block mt-3 px-2.5 py-0.5 rounded-full text-xs"
-                  style={{
-                    background: 'rgba(201, 168, 76, 0.08)',
-                    color: '#C9A84C',
-                    border: '1px solid rgba(201, 168, 76, 0.2)',
-                  }}
+                <p className="text-xs mb-3" style={{ color: '#8A8078' }}>{item.company}</p>
+                <span
+                  className="text-xs tracking-widest uppercase"
+                  style={{ color: '#A8842A' }}
                 >
                   {item.industry}
-                </div>
+                </span>
               </div>
             </div>
           ))}
+          <div style={{ borderTop: '1px solid rgba(15,15,15,0.08)' }} />
         </div>
       </div>
     </section>

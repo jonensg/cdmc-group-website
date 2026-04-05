@@ -1,156 +1,127 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { ArrowRight, TrendingUp } from 'lucide-react';
-
-const caseStudies = [
-  {
-    id: 1,
-    industry: 'Finance & Insurance',
-    client: 'Leading Regional Bank',
-    result: '+312% positive sentiment',
-    metric: '312%',
-    period: '6 months',
-    tag: 'ORM + Social Intelligence',
-    color: '#2D6BE4',
-  },
-  {
-    id: 2,
-    industry: 'E-commerce',
-    client: 'Cross-border DTC Brand',
-    result: '5× KOC content reach',
-    metric: '5×',
-    period: '90 days',
-    tag: 'KOC Seeding',
-    color: '#C9A84C',
-  },
-  {
-    id: 3,
-    industry: 'Aesthetics & 醫美',
-    client: 'Premium Aesthetic Clinic',
-    result: 'Crisis resolved in 48hrs',
-    metric: '48h',
-    period: 'response time',
-    tag: 'Crisis Management',
-    color: '#A855F7',
-  },
-];
+import { ArrowRight } from 'lucide-react';
+import { getFeaturedCaseStudies } from '@/lib/caseStudies';
 
 export default function CaseStudies() {
   const t = useTranslations('caseStudies');
   const locale = useLocale();
+  const caseStudies = getFeaturedCaseStudies();
 
   return (
-    <section className="py-24" style={{ background: '#111118' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <p
-            className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: '#C9A84C' }}
-          >
-            {t('eyebrow')}
-          </p>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-            style={{
-              fontFamily: 'var(--font-space-grotesk)',
-              color: '#F5F5F5',
-            }}
-          >
-            {t('headline')}
-          </h2>
-          <p className="text-base sm:text-lg" style={{ color: '#9CA3AF' }}>
-            {t('subheadline')}
-          </p>
+    <section style={{ background: '#080808' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+
+        {/* Section header */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+          <div>
+            <div className="flex items-center gap-5 mb-8">
+              <div className="w-8 h-px" style={{ background: '#A8842A' }} />
+              <p className="text-xs font-medium tracking-widest uppercase" style={{ color: '#A8842A' }}>
+                {t('eyebrow')}
+              </p>
+            </div>
+            <h2
+              className="text-4xl sm:text-5xl leading-[1.05]"
+              style={{ fontFamily: 'var(--font-dm-serif)', color: '#F7F4EF' }}
+            >
+              {t('headline')}
+            </h2>
+          </div>
+          <div className="flex items-end">
+            <p className="text-base leading-relaxed" style={{ color: '#7A7268' }}>
+              {t('subheadline')}
+            </p>
+          </div>
         </div>
 
-        {/* Case Study Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        {/* Case study rows */}
+        <div className="mb-16">
           {caseStudies.map((study) => (
             <div
-              key={study.id}
-              className="group relative rounded-2xl border-gold-glow hover:scale-[1.02] transition-all duration-300 overflow-hidden"
-              style={{ background: '#16161F' }}
+              key={study.slug}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 py-10 items-center"
+              style={{ borderTop: '1px solid rgba(247,244,239,0.07)' }}
             >
-              {/* Top color bar */}
-              <div className="h-1 w-full" style={{ background: study.color }} />
-
-              <div className="p-7">
-                {/* Tag */}
-                <div
-                  className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-5"
-                  style={{
-                    background: `${study.color}15`,
-                    color: study.color,
-                    border: `1px solid ${study.color}30`,
-                  }}
-                >
-                  {study.tag}
-                </div>
-
-                {/* Industry & Client */}
-                <p className="text-xs mb-1" style={{ color: '#6B7280' }}>{study.industry}</p>
-                <h3
-                  className="text-base font-semibold mb-5"
-                  style={{
-                    fontFamily: 'var(--font-space-grotesk)',
-                    color: '#F5F5F5',
-                  }}
-                >
+              {/* Client info */}
+              <div className="lg:col-span-3">
+                <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: '#A8842A' }}>
+                  {study.service} · {study.platform}
+                </p>
+                <p className="text-xs mb-1" style={{ color: '#7A7268' }}>{study.industry}</p>
+                <p className="text-lg" style={{ color: '#F7F4EF', fontFamily: 'var(--font-dm-serif)' }}>
                   {study.client}
-                </h3>
+                </p>
+                <p className="text-xs mt-0.5" style={{ color: '#4A4540' }}>{study.clientEn}</p>
+              </div>
 
-                {/* Key Metric */}
-                <div
-                  className="flex items-end gap-2 mb-2 pb-5"
-                  style={{ borderBottom: '1px solid rgba(201, 168, 76, 0.1)' }}
-                >
-                  <span
-                    className="text-4xl font-bold"
-                    style={{
-                      fontFamily: 'var(--font-space-grotesk)',
-                      color: study.color,
-                    }}
-                  >
-                    {study.metric}
-                  </span>
-                  <span className="text-sm mb-1" style={{ color: '#6B7280' }}>{study.period}</span>
+              {/* Primary metric */}
+              <div className="lg:col-span-4">
+                <div className="text-5xl sm:text-6xl mb-1" style={{ fontFamily: 'var(--font-dm-serif)', color: '#F7F4EF' }}>
+                  {study.metrics.primary.value}
                 </div>
-
-                <div className="flex items-center justify-between pt-1">
-                  <p className="text-sm" style={{ color: '#9CA3AF' }}>"{study.result}"</p>
-                  <TrendingUp size={14} style={{ color: '#C9A84C' }} />
+                <div className="text-xs tracking-widest uppercase" style={{ color: '#7A7268' }}>
+                  {study.metrics.primary.label}
                 </div>
               </div>
 
-              {/* Read more link */}
-              <div className="px-7 pb-6">
+              {/* Secondary metric */}
+              <div className="lg:col-span-3">
+                {study.metrics.secondary && (
+                  <>
+                    <div className="text-3xl mb-1" style={{ fontFamily: 'var(--font-dm-serif)', color: 'rgba(247,244,239,0.4)' }}>
+                      {study.metrics.secondary.value}
+                    </div>
+                    <div className="text-xs tracking-widest uppercase" style={{ color: '#7A7268' }}>
+                      {study.metrics.secondary.label}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* Link */}
+              <div className="lg:col-span-2 flex justify-end">
                 <Link
-                  href={`/${locale}/case-studies/${study.id}`}
-                  className="inline-flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all"
-                  style={{ color: '#C9A84C' }}
+                  href={`/${locale}/case-studies/${study.slug}`}
+                  className="group inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase transition-opacity duration-200 hover:opacity-60"
+                  style={{ color: '#F7F4EF' }}
                 >
                   {t('readMore')}
-                  <ArrowRight size={12} />
+                  <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
           ))}
+          <div style={{ borderTop: '1px solid rgba(247,244,239,0.07)' }} />
         </div>
 
-        {/* View All */}
-        <div className="text-center">
+        {/* Client name strip */}
+        <div className="pt-4">
+          <p className="text-xs tracking-widest uppercase mb-6" style={{ color: '#4A4540' }}>
+            Also trusted by
+          </p>
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {[
+              'Disney', 'New Town Plaza', 'CUHK Hospital', 'Wi-Fi.HK',
+              'HKU SPACE', 'CityU', 'Esprit', 'ABC Pathways School',
+              'Hollywood Plaza', 'MAGART', 'H Coffee', '山友同行',
+            ].map(name => (
+              <span key={name} className="text-sm" style={{ color: '#4A4540' }}>
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* View all */}
+        <div className="mt-16">
           <Link
             href={`/${locale}/case-studies`}
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105"
-            style={{
-              border: '1px solid rgba(201, 168, 76, 0.3)',
-              color: '#C9A84C',
-            }}
+            className="inline-flex items-center gap-3 px-8 py-4 text-xs font-semibold tracking-widest uppercase transition-all duration-200 hover:opacity-80"
+            style={{ border: '1px solid rgba(247,244,239,0.2)', color: '#F7F4EF' }}
           >
             {t('viewAll')}
-            <ArrowRight size={15} />
+            <ArrowRight size={14} />
           </Link>
         </div>
       </div>

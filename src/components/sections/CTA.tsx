@@ -1,83 +1,63 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function CTA() {
   const t = useTranslations('cta');
   const locale = useLocale();
 
   return (
-    <section
-      className="py-24 relative overflow-hidden"
-      style={{ background: '#111118' }}
-    >
-      {/* Background glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201, 168, 76, 0.06), transparent)',
-        }}
-      />
+    <section style={{ background: '#080808' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-28">
+        <div className="max-w-4xl">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div
-          className="max-w-4xl mx-auto text-center p-12 sm:p-16 rounded-3xl border-gold-glow"
-          style={{ background: '#16161F' }}
-        >
-          {/* Top gold line */}
-          <div
-            className="w-16 h-px mx-auto mb-8"
-            style={{ background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)' }}
-          />
+          {/* Gold rule */}
+          <div className="w-8 h-px mb-12" style={{ background: '#A8842A' }} />
 
           <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
+            className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] mb-8"
             style={{
-              fontFamily: 'var(--font-space-grotesk)',
-              color: '#F5F5F5',
+              fontFamily: 'var(--font-dm-serif)',
+              color: '#F7F4EF',
             }}
           >
             {t('headline')}
           </h2>
+
           <p
-            className="text-base sm:text-lg mb-10 max-w-2xl mx-auto"
-            style={{ color: '#9CA3AF' }}
+            className="text-base sm:text-lg max-w-xl mb-14 leading-relaxed"
+            style={{ color: '#7A7268' }}
           >
             {t('subheadline')}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
             <Link
-              href={`/${locale}/contact`}
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105"
+              href={`/${locale}/qualify`}
+              className="inline-flex items-center gap-3 px-8 py-4 text-xs font-semibold tracking-widest uppercase transition-all duration-200 hover:opacity-80"
               style={{
-                background: 'linear-gradient(135deg, #C9A84C, #E8C97A)',
-                color: '#0A0A0F',
-                fontFamily: 'var(--font-space-grotesk)',
-                boxShadow: '0 0 30px rgba(201, 168, 76, 0.25)',
+                background: '#F7F4EF',
+                color: '#080808',
               }}
             >
               {t('primary')}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={14} />
             </Link>
             <a
               href="https://wa.me/85200000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-3 px-8 py-4 text-xs font-semibold tracking-widest uppercase transition-all duration-200 hover:opacity-80"
               style={{
-                border: '1px solid rgba(201, 168, 76, 0.3)',
-                color: '#C9A84C',
-                fontFamily: 'var(--font-space-grotesk)',
+                border: '1px solid rgba(247,244,239,0.15)',
+                color: '#7A7268',
               }}
             >
-              <MessageCircle size={18} />
               {t('whatsapp')}
             </a>
           </div>
 
-          <p className="mt-8 text-xs" style={{ color: '#4B5563' }}>
+          <p className="text-xs" style={{ color: '#4A4540' }}>
             {t('disclaimer')}
           </p>
         </div>

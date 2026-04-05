@@ -1,89 +1,47 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-dm-serif);
   --font-sans: var(--font-inter);
 }
 
 :root {
-  --bg-primary: #0A0A0F;
-  --bg-secondary: #111118;
-  --bg-card: #16161F;
-  --gold: #C9A84C;
-  --gold-light: #E8C97A;
-  --blue-accent: #2D6BE4;
-  --text-primary: #F5F5F5;
-  --text-muted: #6B7280;
-  --border-gold: rgba(201, 168, 76, 0.3);
+  --bg-cream: #F7F4EF;
+  --bg-cream-dark: #EDEAE4;
+  --bg-dark: #080808;
+  --gold: #A8842A;
+  --text-primary: #0F0F0F;
+  --text-body: #4A4540;
+  --text-muted: #8A8078;
+  --text-light: #F7F4EF;
+  --text-light-muted: #7A7268;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 20px;
+}
+
 body {
-  background: var(--bg-primary);
+  background: var(--bg-cream);
   color: var(--text-primary);
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 3px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
 
-/* Grid texture for hero */
-.hero-grid {
-  background-image:
-    linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Gold gradient text */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Gold border glow */
-.border-gold-glow {
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  box-shadow: 0 0 20px rgba(201, 168, 76, 0.05), inset 0 0 20px rgba(201, 168, 76, 0.02);
-}
-
-/* Blue glow for stats */
-.blue-glow {
-  text-shadow: 0 0 20px rgba(45, 107, 228, 0.5);
-}
-
-/* Fade in animation */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
+.animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
 .animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
 .animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
 .animate-delay-300 { animation-delay: 0.3s; opacity: 0; }

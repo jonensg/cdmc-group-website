@@ -1,38 +1,51 @@
 import { useTranslations } from 'next-intl';
 
 const stats = [
-  { value: '18', unit: '+', labelKey: 'years' },
-  { value: '10,000', unit: '+', labelKey: 'resources' },
-  { value: '100', unit: '+', labelKey: 'brands' },
-  { value: '100M', unit: '+', labelKey: 'exposure' },
+  { value: '18+', labelKey: 'years' },
+  { value: '10,000+', labelKey: 'resources' },
+  { value: '100+', labelKey: 'brands' },
+  { value: '100M+', labelKey: 'exposure' },
 ] as const;
 
 export default function TrustBar() {
   const t = useTranslations('trust');
 
   return (
-    <section style={{ background: '#111118', borderTop: '1px solid rgba(201, 168, 76, 0.15)', borderBottom: '1px solid rgba(201, 168, 76, 0.15)' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p
-          className="text-center text-xs font-medium tracking-widest uppercase mb-10"
-          style={{ color: '#6B7280' }}
-        >
-          {t('headline')}
-        </p>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat) => (
-            <div key={stat.labelKey} className="text-center">
+    <section style={{ background: '#F7F4EF' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+        {/* Gold rule + eyebrow */}
+        <div className="flex items-center gap-5 mb-16">
+          <div className="w-8 h-px" style={{ background: '#A8842A' }} />
+          <p className="text-xs font-medium tracking-widest uppercase" style={{ color: '#A8842A' }}>
+            {t('headline')}
+          </p>
+        </div>
+
+        {/* Stats row */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
+          {stats.map((stat, i) => (
+            <div
+              key={stat.labelKey}
+              className="py-8 pr-8"
+              style={{
+                borderLeft: i > 0 ? '1px solid rgba(15,15,15,0.08)' : 'none',
+                paddingLeft: i > 0 ? '2rem' : '0',
+              }}
+            >
               <div
-                className="text-4xl sm:text-5xl font-bold mb-2 blue-glow"
+                className="text-5xl sm:text-6xl mb-3"
                 style={{
-                  fontFamily: 'var(--font-space-grotesk)',
-                  color: '#2D6BE4',
+                  fontFamily: 'var(--font-dm-serif)',
+                  color: '#0F0F0F',
                 }}
               >
                 {stat.value}
-                <span style={{ color: '#C9A84C' }}>{stat.unit}</span>
               </div>
-              <p className="text-sm font-medium" style={{ color: '#9CA3AF' }}>
+              <p
+                className="text-xs leading-relaxed"
+                style={{ color: '#8A8078', maxWidth: '160px' }}
+              >
                 {t(stat.labelKey)}
               </p>
             </div>

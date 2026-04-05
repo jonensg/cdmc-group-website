@@ -1,13 +1,12 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { ArrowRight, Shield, Radar, MessageSquare, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const services = [
-  { key: 'orm', icon: Shield, href: 'online-reputation-management' },
-  { key: 'social', icon: Radar, href: 'social-intelligence-analytics' },
-  { key: 'wom', icon: MessageSquare, href: 'koc-seeding-word-of-mouth' },
-  { key: 'crisis', icon: Zap, href: 'crisis-management' },
+  { key: 'orm', href: 'online-reputation-management' },
+  { key: 'social', href: 'social-intelligence-analytics' },
+  { key: 'wom', href: 'koc-seeding-word-of-mouth' },
+  { key: 'crisis', href: 'crisis-management' },
 ] as const;
 
 export default function Services() {
@@ -15,74 +14,83 @@ export default function Services() {
   const locale = useLocale();
 
   return (
-    <section className="py-24" style={{ background: '#111118' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <p
-            className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: '#C9A84C' }}
-          >
-            {t('eyebrow')}
-          </p>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
-            style={{
-              fontFamily: 'var(--font-space-grotesk)',
-              color: '#F5F5F5',
-            }}
-          >
-            {t('headline')}
-          </h2>
-          <p className="text-base sm:text-lg" style={{ color: '#9CA3AF' }}>
-            {t('subheadline')}
-          </p>
+    <section style={{ background: '#F7F4EF' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+
+        {/* Section header */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+          <div>
+            <div className="flex items-center gap-5 mb-8">
+              <div className="w-8 h-px" style={{ background: '#A8842A' }} />
+              <p className="text-xs font-medium tracking-widest uppercase" style={{ color: '#A8842A' }}>
+                {t('eyebrow')}
+              </p>
+            </div>
+            <h2
+              className="text-4xl sm:text-5xl leading-[1.05]"
+              style={{
+                fontFamily: 'var(--font-dm-serif)',
+                color: '#0F0F0F',
+              }}
+            >
+              {t('headline')}
+            </h2>
+          </div>
+          <div className="flex items-end">
+            <p className="text-base leading-relaxed" style={{ color: '#4A4540' }}>
+              {t('subheadline')}
+            </p>
+          </div>
         </div>
 
-        {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map(({ key, icon: Icon, href }) => (
+        {/* Service rows */}
+        <div>
+          {services.map((service, index) => (
             <Link
-              key={key}
-              href={`/${locale}/services/${href}`}
-              className="group relative p-6 rounded-2xl border-gold-glow hover:scale-[1.02] transition-all duration-300"
-              style={{ background: '#16161F' }}
+              key={service.key}
+              href={`/${locale}/services/${service.href}`}
+              className="group grid grid-cols-1 lg:grid-cols-2 gap-6 py-10 transition-all duration-200"
+              style={{
+                borderTop: '1px solid rgba(15,15,15,0.1)',
+                textDecoration: 'none',
+              }}
             >
-              {/* Top gold border on hover */}
-              <div
-                className="absolute top-0 left-6 right-6 h-px transition-all duration-300"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.6), transparent)' }}
-              />
-
-              {/* Icon */}
-              <div
-                className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                style={{ background: 'rgba(201, 168, 76, 0.08)', border: '1px solid rgba(201, 168, 76, 0.2)' }}
-              >
-                <Icon size={20} style={{ color: '#C9A84C' }} />
+              {/* Left: number + title */}
+              <div className="flex items-start gap-8">
+                <span
+                  className="text-xs font-medium tracking-widest pt-1 shrink-0"
+                  style={{ color: '#A8842A', minWidth: '24px' }}
+                >
+                  0{index + 1}
+                </span>
+                <h3
+                  className="text-2xl sm:text-3xl leading-tight transition-colors duration-200 group-hover:opacity-60"
+                  style={{
+                    fontFamily: 'var(--font-dm-serif)',
+                    color: '#0F0F0F',
+                  }}
+                >
+                  {t(`${service.key}.title`)}
+                </h3>
               </div>
 
-              <h3
-                className="text-base font-semibold mb-3"
-                style={{
-                  fontFamily: 'var(--font-space-grotesk)',
-                  color: '#F5F5F5',
-                }}
-              >
-                {t(`${key}.title`)}
-              </h3>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: '#6B7280' }}>
-                {t(`${key}.description`)}
-              </p>
-              <span
-                className="inline-flex items-center gap-1 text-xs font-semibold group-hover:gap-2 transition-all"
-                style={{ color: '#C9A84C' }}
-              >
-                {t('learnMore')}
-                <ArrowRight size={13} />
-              </span>
+              {/* Right: description + arrow */}
+              <div className="flex items-center justify-between gap-6 lg:pl-4">
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: '#4A4540' }}
+                >
+                  {t(`${service.key}.description`)}
+                </p>
+                <ArrowRight
+                  size={18}
+                  className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                  style={{ color: '#A8842A' }}
+                />
+              </div>
             </Link>
           ))}
+          <div style={{ borderTop: '1px solid rgba(15,15,15,0.1)' }} />
         </div>
       </div>
     </section>

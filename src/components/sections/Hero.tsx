@@ -1,7 +1,21 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { ArrowRight, Shield, Globe, TrendingUp } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Play } from 'lucide-react';
+
+const clients = [
+  { name: 'Disney', logo: '/logos/disney.svg', w: 90 },
+  { name: 'HKT', logo: '/logos/hkt.svg', w: 52 },
+  { name: 'OneDegree', logo: '/logos/onedegree.svg', w: 100 },
+  { name: 'New Town Plaza', logo: '/logos/newtownplaza.svg', w: 110 },
+  { name: 'CUHK Medical Centre', logo: '/logos/cuhkmc.svg', w: 130 },
+  { name: 'Wi-Fi.HK', logo: null, w: 0 },
+  { name: 'Esprit', logo: '/logos/esprit.png', w: 72 },
+  { name: 'HKU SPACE', logo: '/logos/hkuspace.png', w: 100 },
+  { name: 'CityU', logo: '/logos/cityu.svg', w: 68 },
+  { name: 'HKCO', logo: null, w: 0 },
+  { name: 'Hollywood Plaza', logo: '/logos/hollywood.png', w: 100 },
+];
 
 export default function Hero() {
   const t = useTranslations('hero');
@@ -9,106 +23,214 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden hero-grid"
-      style={{ background: '#0A0A0F' }}
+      className="relative min-h-screen flex flex-col justify-between pt-16 overflow-hidden"
+      style={{ background: '#080808' }}
     >
-      {/* Background glow effects */}
-      <div
-        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #C9A84C, transparent)' }}
-      />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #2D6BE4, transparent)' }}
-      />
+      {/* Main content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 py-20">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
+          {/* Left: copy */}
+          <div className="flex flex-col justify-center">
+            {/* Gold rule */}
+            <div className="w-10 h-px mb-12" style={{ background: '#A8842A' }} />
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 animate-fade-in-up"
-            style={{
-              border: '1px solid rgba(201, 168, 76, 0.3)',
-              background: 'rgba(201, 168, 76, 0.05)',
-            }}
-          >
-            <Globe size={14} style={{ color: '#C9A84C' }} />
-            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: '#C9A84C' }}>
-              {t('badge')}
-            </span>
+            {/* Headline */}
+            <h1
+              className="text-6xl sm:text-7xl lg:text-7xl xl:text-8xl leading-[0.92] mb-5 animate-fade-in-up"
+              style={{ fontFamily: 'var(--font-dm-serif)', color: '#F7F4EF' }}
+            >
+              {t('subheadline')}
+            </h1>
+            <p
+              className="text-2xl sm:text-3xl leading-tight mb-10 animate-fade-in-up animate-delay-100"
+              style={{ fontFamily: 'var(--font-dm-serif)', color: 'rgba(247,244,239,0.4)' }}
+            >
+              {t('headline')}
+            </p>
+
+            {/* Tagline */}
+            <p
+              className="text-base max-w-md mb-12 leading-relaxed animate-fade-in-up animate-delay-200"
+              style={{ color: '#7A7268' }}
+            >
+              {t('tagline')}
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-start gap-4 mb-16 animate-fade-in-up animate-delay-300">
+              <Link
+                href={`/${locale}/qualify`}
+                className="inline-flex items-center gap-3 px-8 py-4 text-xs font-semibold tracking-widest uppercase transition-opacity duration-300 hover:opacity-80"
+                style={{ background: '#F7F4EF', color: '#080808' }}
+              >
+                {t('cta')} <ArrowRight size={14} />
+              </Link>
+              <Link
+                href={`/${locale}/case-studies`}
+                className="inline-flex items-center gap-3 px-8 py-4 text-xs font-semibold tracking-widest uppercase transition-opacity duration-300 hover:opacity-80"
+                style={{ border: '1px solid rgba(247,244,239,0.15)', color: '#7A7268' }}
+              >
+                {t('ctaSecondary')}
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div
+              className="flex flex-wrap gap-10 pt-10 animate-fade-in-up animate-delay-400"
+              style={{ borderTop: '1px solid rgba(247,244,239,0.06)' }}
+            >
+              {[
+                { value: '18+', label: 'Years of Excellence' },
+                { value: '10,000+', label: 'Verified KOC Network' },
+                { value: '100+', label: 'Enterprise Brands' },
+              ].map(stat => (
+                <div key={stat.label}>
+                  <div className="text-3xl mb-1" style={{ fontFamily: 'var(--font-dm-serif)', color: '#F7F4EF' }}>
+                    {stat.value}
+                  </div>
+                  <div className="text-xs tracking-widest uppercase" style={{ color: '#7A7268' }}>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Main Headline */}
-          <h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 leading-tight animate-fade-in-up animate-delay-100"
-            style={{ fontFamily: 'var(--font-space-grotesk)' }}
-          >
-            <span className="text-gold-gradient">{t('headline')}</span>
-          </h1>
+          {/* Right: founder card */}
+          <div className="flex items-center justify-center lg:justify-end animate-fade-in-up animate-delay-200">
+            <div className="relative w-full max-w-sm">
 
-          {/* Subheadline */}
-          <p
-            className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 animate-fade-in-up animate-delay-200"
-            style={{
-              color: '#F5F5F5',
-              fontFamily: 'var(--font-space-grotesk)',
-            }}
-          >
-            {t('subheadline')}
-          </p>
+              {/* Founder video card */}
+              <a
+                href="https://www.youtube.com/@jjdigitalchannel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block w-full transition-opacity duration-300 hover:opacity-90"
+              >
+                <div
+                  className="relative overflow-hidden"
+                  style={{
+                    border: '1px solid rgba(247,244,239,0.1)',
+                    background: '#111111',
+                    padding: '2rem',
+                  }}
+                >
+                  {/* Circular photo placeholder */}
+                  <div className="flex items-center gap-5 mb-6">
+                    <div
+                      className="relative shrink-0 flex items-center justify-center overflow-hidden"
+                      style={{
+                        width: '80px',
+                        height: '80px',
+                        borderRadius: '50%',
+                        background: 'rgba(168,132,42,0.1)',
+                        border: '2px solid rgba(168,132,42,0.3)',
+                      }}
+                    >
+                      {/* Replace this div with <Image> when photo is ready */}
+                      <span className="text-xs tracking-widest uppercase text-center leading-tight px-2" style={{ color: '#A8842A', fontSize: '9px' }}>
+                        Photo<br />coming
+                      </span>
+                    </div>
 
-          {/* Tagline */}
-          <p
-            className="text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animate-delay-300"
-            style={{ color: '#9CA3AF' }}
-          >
-            {t('tagline')}
-          </p>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: '#F7F4EF' }}>Jones Ng</p>
+                      <p className="text-xs mt-0.5" style={{ color: '#7A7268' }}>Founder & Director</p>
+                      <p className="text-xs" style={{ color: '#7A7268' }}>CDMC Group</p>
+                    </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up animate-delay-400">
-            <Link
-              href={`/${locale}/contact`}
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-105"
-              style={{
-                background: 'linear-gradient(135deg, #C9A84C, #E8C97A)',
-                color: '#0A0A0F',
-                fontFamily: 'var(--font-space-grotesk)',
-                boxShadow: '0 0 30px rgba(201, 168, 76, 0.3)',
-              }}
-            >
-              {t('cta')}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href={`/${locale}/case-studies`}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-105"
-              style={{
-                border: '1px solid rgba(201, 168, 76, 0.4)',
-                color: '#C9A84C',
-                background: 'transparent',
-                fontFamily: 'var(--font-space-grotesk)',
-              }}
-            >
-              {t('ctaSecondary')}
-            </Link>
-          </div>
+                    {/* External link indicator */}
+                    <div className="ml-auto">
+                      <ArrowRight size={14} style={{ color: '#A8842A' }} />
+                    </div>
+                  </div>
 
-          {/* Trust Indicators */}
-          <div
-            className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-10 animate-fade-in-up animate-delay-400"
-            style={{ borderTop: '1px solid rgba(201, 168, 76, 0.1)' }}
-          >
-            {[
-              { icon: TrendingUp, label: t('trust1') },
-              { icon: Shield, label: t('trust2') },
-              { icon: Globe, label: t('trust3') },
-            ].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2">
-                <Icon size={16} style={{ color: '#C9A84C' }} />
-                <span className="text-sm" style={{ color: '#6B7280' }}>{label}</span>
+                  {/* YouTube label */}
+                  <div className="flex items-center gap-2 mb-5" style={{ borderTop: '1px solid rgba(247,244,239,0.06)', paddingTop: '1.25rem' }}>
+                    <div className="w-4 h-px" style={{ background: '#A8842A' }} />
+                    <span className="text-xs tracking-widest uppercase" style={{ color: '#A8842A' }}>
+                      YouTube · @jjdigitalchannel
+                    </span>
+                  </div>
+
+                  {/* YouTube thumbnail */}
+                  <div className="relative w-full overflow-hidden" style={{ height: '180px' }}>
+                    <Image
+                      src="https://img.youtube.com/vi/wW1NNcCCisg/maxresdefault.jpg"
+                      alt="Jones Ng — CDMC Group YouTube"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 384px"
+                    />
+                    {/* Play overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center" style={{ background: 'rgba(8,8,8,0.3)' }}>
+                      <div
+                        className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                        style={{ background: '#A8842A', borderRadius: '50%' }}
+                      >
+                        <Play size={16} fill="#080808" style={{ color: '#080808', marginLeft: '3px' }} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-xs mt-4" style={{ color: '#4A4540' }}>
+                    小紅書第一人 · 香港媒體認可 · 18年中國數碼營銷經驗
+                  </p>
+                </div>
+              </a>
+
+              {/* Floating quote */}
+              <div
+                className="absolute -top-5 -right-5 max-w-[180px] p-4 hidden lg:block"
+                style={{
+                  background: '#F7F4EF',
+                  border: '1px solid rgba(15,15,15,0.08)',
+                }}
+              >
+                <p className="text-xs leading-relaxed" style={{ color: '#4A4540', fontStyle: 'italic', fontFamily: 'var(--font-dm-serif)' }}>
+                  "Authentic voices drive real results — not vanity metrics."
+                </p>
               </div>
-            ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Client trust bar */}
+      <div className="w-full" style={{ background: '#F0EDE8', borderTop: '1px solid rgba(15,15,15,0.08)' }}>
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-5 overflow-x-auto">
+          <div className="flex items-center gap-x-6" style={{ whiteSpace: 'nowrap', minWidth: 'max-content' }}>
+            <span className="text-xs tracking-widest uppercase shrink-0 font-medium" style={{ color: '#8A8078' }}>
+              Trusted by
+            </span>
+            <div className="w-px h-5 shrink-0" style={{ background: 'rgba(15,15,15,0.15)' }} />
+            {clients.map((client) =>
+              client.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={client.name}
+                  src={client.logo}
+                  alt={client.name}
+                  style={{
+                    height: '26px',
+                    width: 'auto',
+                    objectFit: 'contain',
+                    opacity: 0.82,
+                    display: 'inline-block',
+                    verticalAlign: 'middle',
+                  }}
+                />
+              ) : (
+                <span
+                  key={client.name}
+                  className="text-xs tracking-widest uppercase font-semibold shrink-0"
+                  style={{ color: '#7A7268' }}
+                >
+                  {client.name}
+                </span>
+              )
+            )}
           </div>
         </div>
       </div>

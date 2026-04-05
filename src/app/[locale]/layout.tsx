@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, DM_Serif_Display } from "next/font/google";
+import AIChatWidget from '@/components/AIChatWidget';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -12,9 +13,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const dmSerifDisplay = DM_Serif_Display({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-dm-serif",
   display: "swap",
 });
 
@@ -50,10 +52,11 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${dmSerifDisplay.variable}`}>
       <body className="min-h-screen antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
+          <AIChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>
