@@ -1,8 +1,6 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const goalLabels: Record<string, string> = {
   A: 'Brand Awareness — get more people to discover them',
   B: 'Customer Advocacy — build a positive, trusted image',
@@ -28,6 +26,7 @@ const clientTypeLabels: Record<string, string> = {
 };
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const body = await request.json();
   const { competitors, wantCompetitorMentions, wantBrandMentions, socialMediaGoal, ormBudget } = body;
 
