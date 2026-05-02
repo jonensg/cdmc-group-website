@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const mediaItems = [
   {
     outlet: 'TVB 新聞',
@@ -29,17 +31,17 @@ const founderStats = [
 ];
 
 const founderChannels = [
-  { name: 'YouTube', handle: '@jjdigitalchannel', url: 'https://www.youtube.com/@jjdigitalchannel' },
-  { name: '小紅書', handle: '中士哥的草稿', url: null },
-  { name: '視頻號', handle: '中士哥 · HeyYo香港', url: null },
+  { name: 'YouTube', handle: '@jjdigitalchannel', url: 'https://www.youtube.com/@jjdigitalchannel', logo: '/logos/youtube.svg' },
+  { name: '小紅書', handle: '中士哥的草稿', url: null, logo: null },
+  { name: '視頻號', handle: '中士哥 · HeyYo香港', url: null, logo: null },
 ];
 
 const trainingClients = [
-  { name: 'Hong Kong TDC', note: '香港好物節 — Official Instructor' },
-  { name: 'HSBC', note: 'Digital Marketing Training' },
-  { name: '香港廠商會', note: 'HKFMF — Social Media Workshop' },
-  { name: 'HKGCC', note: 'HK General Chamber of Commerce' },
-  { name: 'HKMA', note: 'HK Management Association' },
+  { name: 'Hong Kong TDC', note: '香港好物節 — Official Instructor', logo: null },
+  { name: 'HSBC', note: 'Digital Marketing Training', logo: '/logos/hsbc.svg' },
+  { name: '香港廠商會', note: 'HKFMF — Social Media Workshop', logo: null },
+  { name: 'HKGCC', note: 'HK General Chamber of Commerce', logo: null },
+  { name: 'HKMA', note: 'HK Management Association', logo: null },
 ];
 
 export default function MediaCoverage() {
@@ -144,9 +146,13 @@ export default function MediaCoverage() {
             <div className="space-y-3 mb-8">
               {founderChannels.map(ch => (
                 <div key={ch.name} className="flex items-center gap-4">
-                  <span className="text-xs tracking-widest uppercase w-16 shrink-0" style={{ color: '#A8842A' }}>
-                    {ch.name}
-                  </span>
+                  {ch.logo ? (
+                    <Image src={ch.logo} alt={ch.name} width={80} height={18} className="shrink-0 object-contain" />
+                  ) : (
+                    <span className="text-xs tracking-widest uppercase w-16 shrink-0" style={{ color: '#A8842A' }}>
+                      {ch.name}
+                    </span>
+                  )}
                   {ch.url ? (
                     <a
                       href={ch.url}
@@ -188,13 +194,17 @@ export default function MediaCoverage() {
               {trainingClients.map((client, i) => (
                 <div
                   key={client.name}
-                  className="flex items-start justify-between py-5"
-                  style={{ borderTop: i === 0 ? '1px solid rgba(15,15,15,0.1)' : '1px solid rgba(15,15,15,0.1)' }}
+                  className="flex items-center justify-between py-5"
+                  style={{ borderTop: '1px solid rgba(15,15,15,0.1)' }}
                 >
                   <div>
-                    <p className="text-base font-medium" style={{ fontFamily: 'var(--font-dm-serif)', color: '#0F0F0F' }}>
-                      {client.name}
-                    </p>
+                    {client.logo ? (
+                      <Image src={client.logo} alt={client.name} width={64} height={22} className="object-contain mb-0.5" />
+                    ) : (
+                      <p className="text-base font-medium" style={{ fontFamily: 'var(--font-dm-serif)', color: '#0F0F0F' }}>
+                        {client.name}
+                      </p>
+                    )}
                     <p className="text-xs mt-0.5" style={{ color: '#8A8078' }}>{client.note}</p>
                   </div>
                 </div>

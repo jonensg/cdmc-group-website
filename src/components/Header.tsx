@@ -43,7 +43,7 @@ export default function Header() {
   };
 
   const navColor = scrolled ? '#4A4540' : 'rgba(247,244,239,0.6)';
-  const navHoverColor = scrolled ? '#0F0F0F' : '#F7F4EF';
+  const navHoverColor = '#A8842A';
   const logoColor = scrolled ? '#A8842A' : '#A8842A';
   const logoSubColor = scrolled ? '#8A8078' : 'rgba(247,244,239,0.4)';
 
